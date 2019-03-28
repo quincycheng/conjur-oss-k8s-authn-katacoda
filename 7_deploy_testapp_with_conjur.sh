@@ -13,6 +13,10 @@ fi
 
 kubectl config set-context $(kubectl config current-context) --namespace=$TEST_APP_NAMESPACE_NAME
 
+echo "Adding Role Binding for conjur service account"
+
+kubectl create -f ./kubernetes/test-app-conjur-authenticator-role-binding.yml
+
 echo "Storing non-secret conjur cert as test app configuration data"
 
 kubectl delete --ignore-not-found=true configmap conjur-cert
