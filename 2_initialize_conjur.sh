@@ -1,9 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-## inicializa conjur
-## crea la cuenta definida en bootstrap.env
-## almacena la llave de admin en el archivo admin.key
+# initialize conjur
+## create the account defined in bootstrap.env
+## store the admin key in the admin.key file so next script can change the password
+## save the conjur certificate to store in the config map
 
 export SERVICE_IP=$(kubectl get svc --namespace conjur \
                                           conjur-oss-ingress \
@@ -24,5 +25,6 @@ echo 'admin key:' $API_KEY_ADMIN
 echo $API_KEY_ADMIN > admin.key
 #ejecutar manualmente
 ###
-echo -e "\n+\n+ \n Agregar manualmente el siguiente registro al archivo /etc/hosts \n \
+echo -e "\n+\n+ \n Agregar manualmente el siguiente registro al archivo /etc/hosts y en gcloud dns \n \
             $SERVICE_IP $CONJUR_HOSTNAME_SSL"
+

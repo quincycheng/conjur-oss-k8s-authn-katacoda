@@ -12,3 +12,4 @@ docker run --rm -it -v $(PWD)/mydata/:/root cyberark/conjur-cli:5 user update_pa
 docker run --rm -it -v $(PWD)/mydata/:/root cyberark/conjur-cli:5 authn logout
 
 
+ cp ./mydata/conjur-$CONJUR_ACCOUNT.pem .

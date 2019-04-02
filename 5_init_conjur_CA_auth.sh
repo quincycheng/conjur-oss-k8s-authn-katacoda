@@ -8,4 +8,3 @@ docker run --rm -it -v $(PWD)/mydata/:/root cyberark/conjur-cli:5 authn login -u
 docker run --rm -it -v $(PWD)/mydata/:/root -e AUTHENTICATOR_ID -e CONJUR_ACCOUNT  \
         --entrypoint bash cyberark/conjur-cli:5 /root/startCA.sh
 
-cp mydata/conjur-$CONJUR_ACCOUNT.pem .

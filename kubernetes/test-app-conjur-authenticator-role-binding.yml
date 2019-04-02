@@ -2,7 +2,7 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1 # TODO: change this to match your k8s version
 metadata:
-  name: test-app-conjur-authenticator-role-binding-conjur
+  name: conjur-authenticator-role-binding
   namespace: orquestador
 subjects:
   - kind: ServiceAccount

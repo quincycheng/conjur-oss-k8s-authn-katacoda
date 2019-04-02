@@ -1,7 +1,5 @@
  #!/bin/bash
 set -e
-#AUTHENTICATOR_ID='$AUTHENTICATOR_ID'
-#CONJUR_ACCOUNT='$CONJUR_ACCOUNT'
 
 # Generate OpenSSL private key
 openssl genrsa -out ca.key 2048
