@@ -1,40 +1,40 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-app-summon-sidecar
+  name: orquestador-ajustadores
   labels:
-    app: test-app-summon-sidecar
+    app: orquestador-ajustadores
 spec:
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
   selector:
-    app: test-app-summon-sidecar
+    app: orquestador-ajustadores
   type: LoadBalancer
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: test-app-conjur
+#---
+#apiVersion: v1
+#kind: ServiceAccount
+#metadata:
+#  name: test-app-conjur
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: test-app-summon-sidecar
-  name: test-app-summon-sidecar
+    app: orquestador-ajustadores
+  name: orquestador-ajustadores
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-app-summon-sidecar
+      app: orquestador-ajustadores
   template:
     metadata:
       labels:
-        app: test-app-summon-sidecar
+        app: orquestador-ajustadores
     spec:
-      serviceAccountName: test-app-conjur
+#      serviceAccountName: test-app-conjur
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
         imagePullPolicy: Always
@@ -84,7 +84,7 @@ spec:
           - name: CONJUR_ACCOUNT
             value: "{{ CONJUR_ACCOUNT }}"
           - name: CONJUR_AUTHN_LOGIN
-            value: "host/conjur/authn-k8s/dev/apps/orquestador/service_account/test-app-conjur"
+            value: "host/conjur/authn-k8s/dev/apps/orquestador/deployment/orquestador-ajustadores"
           - name: CONJUR_SSL_CERTIFICATE
             valueFrom:
               configMapKeyRef:

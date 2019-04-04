@@ -1,0 +1,8 @@
+---
+authenticators: "authn-k8s/dev,authn"
+account: "default"
+dataKey: ${DATA_KEY}
+
+ssl:
+  hostname: "conjur.demo.com"
+  altNames: "conjur-oss.conjur.svc.cluster.local"

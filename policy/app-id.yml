@@ -12,21 +12,21 @@
     annotations:
       description: Layer of authenticator identities permitted to call authn svc
   - &hosts
-#    - !host
-#      id: orquestador/deployment/orquestador-ajustadores #nivel deployment
-#      annotations:
-#        kubernetes/authentication-container-name: authenticator
-#        kubernetes: "true"
+    - !host
+      id: orquestador/deployment/orquestador-ajustadores #nivel deployment
+      annotations:
+        kubernetes/authentication-container-name: authenticator
+        kubernetes: "true"
     - !host
       id: orquestador/*/*
       annotations:
         kubernetes/authentication-container-name: authenticator
         kubernetes: "true"
-    - !host
-      id: orquestador/service_account/test-app-conjur
-      annotations:
-        kubernetes/authentication-container-name: authenticator
-        openshift: "true"
+#    - !host
+#      id: orquestador/service_account/test-app-conjur
+#      annotations:
+#        kubernetes/authentication-container-name: authenticator
+#        openshift: "true"
 
   - !grant
     role: !layer

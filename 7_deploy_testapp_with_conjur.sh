@@ -62,14 +62,14 @@ sed -e "s#{{ TEST_APP_DOCKER_IMAGE }}#$test_app_image#g" ./test-app/test-app-con
 
 
 echo "Waiting for services to become available"
-while [ -z "$(kubectl describe service test-app-summon-sidecar | grep 'LoadBalancer Ingress' | awk '{ print $3 }')" ]; do
+while [ -z "$(kubectl describe service orquestador-ajustadores | grep 'LoadBalancer Ingress' | awk '{ print $3 }')" ]; do
     printf "."
     sleep 1
 done
 
-kubectl describe service test-app-summon-sidecar | grep 'LoadBalancer Ingress'
+kubectl describe service orquestador-ajustadores | grep 'LoadBalancer Ingress'
 
-app_url=$(kubectl describe service test-app-summon-sidecar | grep 'LoadBalancer Ingress' | awk '{ print $3 }'):8080
+app_url=$(kubectl describe service orquestador-ajustadores | grep 'LoadBalancer Ingress' | awk '{ print $3 }'):8080
 
 echo -e "Adding entry to the sidecar app\n"
 curl  -d '{"name": "Mr. Sidecar"}' -H "Content-Type: application/json" $app_url/pet
