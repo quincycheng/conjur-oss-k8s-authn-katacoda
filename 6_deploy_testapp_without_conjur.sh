@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export TEST_APP_NAMESPACE_NAME="test-app-orginal"
+export TEST_APP_NAMESPACE_NAME="test-app-insecure"
 
 echo "Creating Test App namespace."
 
@@ -46,8 +46,10 @@ while [ -z "$(kubectl describe service test-app | grep 'LoadBalancer Ingress' | 
     sleep 1
 done
 
-kubectl describe service test-app | grep 'LoadBalancer Ingress'
+echo -e "Wait for 10 seconds\n"
+sleep 10s
 
+kubectl describe service test-app | grep 'LoadBalancer Ingress'
 app_url=$(kubectl describe service test-app | grep 'LoadBalancer Ingress' | awk '{ print $3 }'):8080
 
 echo -e "Adding entry to the app\n"
