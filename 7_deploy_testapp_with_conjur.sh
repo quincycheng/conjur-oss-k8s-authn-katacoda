@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export TEST_APP_NAMESPACE_NAME="test-app-summon-sidercar"
+export TEST_APP_NAMESPACE_NAME="test-app-summon-sidecar"
 
 
 echo "Creating Test App namespace."
