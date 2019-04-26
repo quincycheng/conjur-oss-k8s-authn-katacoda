@@ -88,7 +88,7 @@ spec:
           - name: CONJUR_ACCOUNT
             value: "{{ CONJUR_ACCOUNT }}"
           - name: CONJUR_AUTHN_LOGIN
-            value: "host/conjur/authn-k8s/dev/apps/orquestador/service_account/test-app-conjur"
+            value: "host/conjur/authn-k8s/dev/apps/test-summon-sidecar-app/service_account/test-app-conjur"
           - name: CONJUR_SSL_CERTIFICATE
             valueFrom:
               configMapKeyRef:
