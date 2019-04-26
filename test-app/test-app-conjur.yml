@@ -34,6 +34,10 @@ spec:
       labels:
         app: test-app-summon-sidecar
     spec:
+      hostAliases:
+       - ip: "{{ SERVICE_IP }}"
+         hostnames:
+         - "conjur.demo.com"
       serviceAccountName: test-app-conjur
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
