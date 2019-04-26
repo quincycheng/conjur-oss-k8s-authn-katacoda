@@ -26,5 +26,5 @@ echo $API_KEY_ADMIN > admin.key
 #ejecutar manualmente
 ###
 
-echo '$SERVICE_IP conjur.demo.com' >> /etc/hosts
+echo "$SERVICE_IP conjur.demo.com" >> /etc/hosts
 echo -e " Modified /etc/hosts and added line for $SERVICE_IP conjur.demo.com"
