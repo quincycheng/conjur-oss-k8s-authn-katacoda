@@ -12,7 +12,7 @@ fi
 
 kubectl config set-context $(kubectl config current-context) --namespace=$TEST_APP_NAMESPACE_NAME
 
-echo "Pushing postgres image to google registry"
+echo "Build test app image"
 
 pushd test-app/pg
     docker build -t test-app-pg:$CONJUR_NAMESPACE .
