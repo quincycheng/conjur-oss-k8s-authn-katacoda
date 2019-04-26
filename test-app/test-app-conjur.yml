@@ -60,7 +60,7 @@ spec:
             name: conjur-access-token
             readOnly: true
       - image: cyberark/conjur-kubernetes-authenticator
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: authenticator
         env:
           - name: CONJUR_VERSION
