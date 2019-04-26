@@ -73,5 +73,8 @@ kubectl describe service test-app-summon-sidecar | grep 'LoadBalancer Ingress'
 
 app_url=$(kubectl describe service test-app-summon-sidecar | grep 'LoadBalancer Ingress' | awk '{ print $3 }'):8080
 
+echo -e "Wait for 10 seconds\n"
+sleep 10s
+
 echo -e "Adding entry to the sidecar app\n"
 curl  -d '{"name": "Mr. Sidecar"}' -H "Content-Type: application/json" $app_url/pet
