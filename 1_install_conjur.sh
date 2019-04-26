@@ -31,5 +31,7 @@ helm install cyberark/conjur-oss \
 #    --namespace "$CONJUR_NAMESPACE" \
 #    --name "$CONJUR_APP_NAME"
 
-echo "press crtl-c when the External IP appears... "
-kubectl get svc -w conjur-oss-ingress -n $CONJUR_NAMESPACE
+echo "Wait for 5 seconds"
+sleep 5s
+
+kubectl get svc  conjur-oss-ingress -n $CONJUR_NAMESPACE
