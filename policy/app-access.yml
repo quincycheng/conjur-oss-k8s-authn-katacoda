@@ -1,6 +1,6 @@
 ###permisos del layer sobre los secretos
 - !policy
-  id: orquestador-ajustadores-app
+  id: test-app-summon-sidecar-ajustadores-app
   owner: !group devops
   annotations:
     description: This policy contains the creds to access the DB creds in conjur
@@ -12,7 +12,7 @@
       - !variable url
      
     - !permit
-      role: !layer /orquestador-ajustadores
+      role: !layer /test-app-summon-sidecar-ajustadores
       privileges: [ read, execute ]
       resources: *variables
 
