@@ -37,7 +37,7 @@ spec:
       serviceAccountName: test-app-conjur
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: test-app
         ports:
         - containerPort: 8080
