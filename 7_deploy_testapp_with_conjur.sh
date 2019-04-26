@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+source bootstrap.env
+
 echo "Creating Test App namespace."
 
 if ! kubectl get namespace $TEST_APP_NAMESPACE_NAME > /dev/null
