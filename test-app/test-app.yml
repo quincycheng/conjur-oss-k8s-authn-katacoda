@@ -1,33 +1,33 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-app-insecure
+  name: test-app-orginal
   labels:
-    app: test-app-insecure
+    app: test-app-orginal
 spec:
   ports:
   - protocol: TCP
     port: 8080
     targetPort: 8080
   selector:
-    app: test-app-insecure
+    app: test-app-orginal
   type: LoadBalancer
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: test-app-insecure
-  name: test-app-insecure
+    app: test-app-orginal
+  name: test-app-orginal
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-app-insecure
+      app: test-app-orginal
   template:
     metadata:
       labels:
-        app: test-app-insecure
+        app: test-app-orginal
     spec:
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
