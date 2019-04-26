@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export TEST_APP_NAMESPACE_NAME="test-app-insecure"
+export TEST_APP_NAMESPACE_NAME=${TEST_APP_NAMESPACE_NAME}-insecure
 
 echo "Creating Test App namespace."
 
