@@ -19,7 +19,7 @@ pushd test-app/pg
     docker build -t test-app-pg:$CONJUR_NAMESPACE .
     test_app_pg_image=gcr.io/conjur-k8s-demo-230517/test-app-pg
     docker tag test-app-pg:$CONJUR_NAMESPACE $test_app_pg_image
-    docker push $test_app_pg_image
+#    docker push $test_app_pg_image
 popd
 
 echo "Deploying test app Backend"
@@ -34,7 +34,7 @@ pushd test-app
     docker build -t test-app:$CONJUR_NAMESPACE -f Dockerfile .
     test_app_image=gcr.io/conjur-k8s-demo-230517/test-app
     docker tag test-app:$CONJUR_NAMESPACE $test_app_image
-    docker push $test_app_image
+#    docker push $test_app_image
 popd
 
 echo "Deploying test app FrontEnd"
