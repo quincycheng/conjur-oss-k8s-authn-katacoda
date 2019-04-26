@@ -53,11 +53,15 @@ popd
 echo "Deploying test app FrontEnd"
 
 conjur_authenticator_url=$CONJUR_URL/authn-k8s/$AUTHENTICATOR_ID
+export SERVICE_IP=$(kubectl get svc --namespace conjur \
+                                          conjur-oss-ingress \
+                                          -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
 sed -e "s#{{ TEST_APP_DOCKER_IMAGE }}#$test_app_image#g" ./test-app/test-app-conjur.yml |
   sed -e "s#{{ CONJUR_ACCOUNT }}#$CONJUR_ACCOUNT#g" |
   sed -e "s#{{ CONJUR_APPLIANCE_URL }}#$CONJUR_URL#g" |
   sed -e "s#{{ CONJUR_AUTHN_URL }}#$conjur_authenticator_url#g" |
+  sed -e "s#{{ SERVICE_IP }}#$SERVICE_IP#g" |
   kubectl create -f -
 
 
