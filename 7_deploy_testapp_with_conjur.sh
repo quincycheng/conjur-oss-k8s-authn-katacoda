@@ -30,9 +30,9 @@ echo "Pushing postgres image to google registry"
 
 pushd test-app/pg
     docker build -t test-app-pg:$CONJUR_NAMESPACE .
-    test_app_pg_image=gcr.io/conjur-k8s-demo-230517/test-app-pg
+    test_app_pg_image=test-app-pg
     docker tag test-app-pg:$CONJUR_NAMESPACE $test_app_pg_image
-    docker push $test_app_pg_image
+#    docker push $test_app_pg_image
 popd
 
 echo "Deploying test app Backend"
@@ -45,9 +45,9 @@ echo "Building test app image"
 
 pushd test-app
     docker build -t test-app:$CONJUR_NAMESPACE -f Dockerfile.conjur .
-    test_app_image=gcr.io/conjur-k8s-demo-230517/test-sidecar-app
+    test_app_image=test-sidecar-app
     docker tag test-app:$CONJUR_NAMESPACE $test_app_image
-    docker push $test_app_image
+    #docker push $test_app_image
 popd
 
 echo "Deploying test app FrontEnd"
