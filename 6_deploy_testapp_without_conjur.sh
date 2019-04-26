@@ -1,9 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-### SOLO EJECUTAR SI SE QUIERE DESPLEGAR LA APP DE PRUEBA PETS
-## valida si existe el namespace de la app y si no lo crea
-
 echo "Creating Test App namespace."
 
 if ! kubectl get namespace $TEST_APP_NAMESPACE_NAME > /dev/null
@@ -19,7 +16,6 @@ pushd test-app/pg
     docker build -t test-app-pg:$CONJUR_NAMESPACE .
     test_app_pg_image=test-app-pg
     docker tag test-app-pg:$CONJUR_NAMESPACE $test_app_pg_image
-#    docker push $test_app_pg_image
 popd
 
 echo "Deploying test app Backend"
@@ -34,7 +30,6 @@ pushd test-app
     docker build -t test-app:$CONJUR_NAMESPACE -f Dockerfile .
     test_app_image=test-app
     docker tag test-app:$CONJUR_NAMESPACE $test_app_image
-#    docker push $test_app_image
 popd
 
 echo "Deploying test app FrontEnd"
