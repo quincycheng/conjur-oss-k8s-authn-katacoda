@@ -25,6 +25,6 @@ echo 'admin key:' $API_KEY_ADMIN
 echo $API_KEY_ADMIN > admin.key
 #ejecutar manualmente
 ###
-echo -e "\n+\n+ \n Agregar manualmente el siguiente registro al archivo /etc/hosts y en gcloud dns \n \
-            $SERVICE_IP $CONJUR_HOSTNAME_SSL"
 
+echo '$SERVICE_IP conjur.demo.com' >> /etc/hosts
+echo -e " Modified /etc/hosts and added line for $SERVICE_IP conjur.demo.com"
