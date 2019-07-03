@@ -33,6 +33,14 @@ pushd test-app/pg
     docker tag test-app-pg:$CONJUR_NAMESPACE $test_app_pg_image
 popd
 
+
+echo "Create secrets for test app backend"
+kubectl --namespace test-app \
+  create secret generic \
+  test-app-backend-certs \
+  --from-file=server.crt=./etc/ca.pem \
+  --from-file=server.key=./etc/ca-key.pem
+
 echo "Deploying test app Backend"
 
 sed -e "s#{{ TEST_APP_PG_DOCKER_IMAGE }}#$test_app_pg_image#g" ./test-app/pg/postgres.yml |
