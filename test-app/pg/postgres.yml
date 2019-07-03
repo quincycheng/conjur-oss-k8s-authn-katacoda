@@ -69,7 +69,7 @@ spec:
           - name: POSTGRES_USER
             value: test_app
           - name: POSTGRES_PASSWORD
-            value: {{ TEST_APP_DB_PASSWORD }}
+            value: ZyVWhGxZVhN6a3SR
           - name: POSTGRES_DB
             value: test_app
       volumes:
@@ -125,7 +125,7 @@ spec:
           - name: POSTGRES_USER
             value: test_app
           - name: POSTGRES_PASSWORD
-            value: {{ TEST_APP_DB_PASSWORD }}
+            value: "C2ySmLWFkYFV9yVP"
           - name: POSTGRES_DB
             value: test_app
       volumes:
