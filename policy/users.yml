@@ -6,6 +6,7 @@
 - !group kube_admin
 - !group devops
 - !group ops
+- !group secrets_admin
 
 # kube_admin and devops groups are members of the ops admin group
 - !grant
@@ -13,6 +14,8 @@
   members:
   - !group kube_admin
   - !group devops
+  - !group secrets_admin
+
 
 - !user omar
 - !grant
@@ -28,3 +31,8 @@
 - !grant
   role: !group devops
   member: !user carol
+
+- !user alice
+- !grant
+  role: !group secrets_admin
+  member: !user alice
