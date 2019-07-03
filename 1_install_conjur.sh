@@ -26,11 +26,6 @@ helm install cyberark/conjur-oss \
     --namespace "$CONJUR_NAMESPACE" \
     --name "$CONJUR_APP_NAME"
 
-#helm install cyberark/conjur-oss \
-#    --set ssl.hostname=$CONJUR_HOSTNAME_SSL,dataKey="$(docker run --rm cyberark/conjur data-key generate)",authenticators="authn-k8s/dev\,authn",serviceAccount.name=$CONJUR_SERVICEACCOUNT_NAME,serviceAccount.create=false \
-#    --namespace "$CONJUR_NAMESPACE" \
-#    --name "$CONJUR_APP_NAME"
-
 echo "Wait for 5 seconds"
 sleep 5s
 
