@@ -1,21 +1,52 @@
-###permisos del layer sobre los secretos
 - !policy
-  id: orquestador-ajustadores-app
-  owner: !group devops
+  id: test-summon-init-app-db
+  owner: !group secrets_admin
   annotations:
-    description: This policy contains the creds to access the DB creds in conjur
+    description: This policy contains the creds to access the summon init app DB
 
   body:
-    - &variables
-      - !variable db-username
-      - !variable db-password
+    - &init-variables
+      - !variable password
       - !variable url
-     
+      - !variable username
+
     - !permit
-      role: !layer /orquestador-ajustadores
+      role: !layer /test-app
       privileges: [ read, execute ]
-      resources: *variables
+      resources: *init-variables
 
+- !policy
+  id: test-summon-sidecar-app-db
+  owner: !group secrets_admin
+  annotations:
+    description: This policy contains the creds to access the summon sidecar app DB
 
+  body:
+    - &sidecar-variables
+      - !variable password
+      - !variable url
+      - !variable username
 
+    - !permit
+      role: !layer /test-app
+      privileges: [ read, execute ]
+      resources: *sidecar-variables
 
+- !policy
+  id: test-secretless-app-db
+  owner: !group secrets_admin
+  annotations:
+    description: This policy contains the creds to access the secretless app DB
+
+  body:
+    - &secretless-variables
+      - !variable password
+      - !variable url
+      - !variable port
+      - !variable host
+      - !variable username
+
+    - !permit
+      role: !layer /test-app
+      privileges: [ read, execute ]
+      resources: *secretless-variables
