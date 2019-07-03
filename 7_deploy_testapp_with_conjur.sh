@@ -25,7 +25,7 @@ kubectl create configmap conjur-cert --from-file=ssl-certificate=./conjur-$CONJU
 
 echo "Conjur cert stored."
 
-echo "Pushing postgres image to google registry"
+echo "Pushing postgres image to registry"
 
 pushd test-app/pg
     docker build -t test-app-pg:$CONJUR_NAMESPACE .
