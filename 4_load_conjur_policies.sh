@@ -24,11 +24,11 @@ docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/ro
 docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/url "postgresql://test-summon-sidecar-app-backend.test-app.svc.cluster.local:5432/postgres"
 
 
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/username "test_app"
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/password "ZyVWhGxZVhN6a3SR"
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/url "postgresql://test-summon-init-app-backend.test-app.svc.cluster.local:5432/postgres"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-init-app-db/username "test_app"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-init-app-db/password "ZyVWhGxZVhN6a3SR"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-init-app-db/url "postgresql://test-summon-init-app-backend.test-app.svc.cluster.local:5432/postgres"
 
 
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/username "test_app"
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/password "C2ySmLWFkYFV9yVP"
-docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-summon-sidecar-app-db/url "postgresql://test-secretless-app-backend.test-app.svc.cluster.local:5432/postgres"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-secretless-app-db/username "test_app"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-secretless-app-db/password "C2ySmLWFkYFV9yVP"
+docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd)/mydata/:/root cyberark/conjur-cli:5 variable values add test-secretless-app-db/url "postgresql://test-secretless-app-backend.test-app.svc.cluster.local:5432/postgres"
