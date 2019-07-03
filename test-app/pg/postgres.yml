@@ -113,7 +113,7 @@ spec:
       containers:
       - name: test-secretless-app-backend
         image: {{ TEST_APP_PG_DOCKER_IMAGE }}
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 5432
         volumeMounts:
