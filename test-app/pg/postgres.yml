@@ -34,6 +34,13 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            value: test_app
+          - name: POSTGRES_PASSWORD
+            value: "5b3e5f75cb3cdc725fe40318"
+          - name: POSTGRES_DB
+            value: test_app
 
 ---
 apiVersion: apps/v1beta1
